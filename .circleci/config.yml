@@ -1,14 +1,11 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: andrewlock/dotnet-mono
+    machine: true
 
     steps:
       - checkout
-      - run:
-          name: push-docker
-          command: |
-            chmod 755 ./*.sh
-            export TERM=xterm-256color
-            ./fake.sh build
+      - run: |
+          docker login -u $docker_user -p $docker_password
+          docker build -t humhei/docker-dotnet-mono:lastest
+          docker push humhei/docker-dotnet-mono:lastest
