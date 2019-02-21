@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+          name: push-docker
+          command: |
+            chmod 755 ./*.sh
+            export TERM=xterm-256color
+            ./fake.sh build
