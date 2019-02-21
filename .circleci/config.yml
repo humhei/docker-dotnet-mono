@@ -7,5 +7,5 @@ jobs:
       - checkout
       - run: |
           docker login -u $docker_user -p $docker_password
-          docker build -t humhei/docker-dotnet-mono:lastest
+          docker build -t humhei/docker-dotnet-mono:lastest .
           docker push humhei/docker-dotnet-mono:lastest
