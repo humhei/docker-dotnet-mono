@@ -1,5 +1,5 @@
 FROM mono:latest AS builder
-
+# stretch curl
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		ca-certificates \
 		curl \
@@ -17,6 +17,7 @@ RUN set -ex; \
 		rm -rf /var/lib/apt/lists/*; \
 	fi
 
+# strectch scm
 # procps is very common in build systems, and is a reasonably small package
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		bzr \
