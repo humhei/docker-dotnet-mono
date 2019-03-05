@@ -64,7 +64,7 @@ ENV ASPNETCORE_URLS=http://+:80 \
     NUGET_XMLDOC_MODE=skip
 
 # Set the locale
-RUN apt-get clean && apt-get update && apt-get install -y locales && export LANGUAGE=en_US.UTF-8 && export LANG=en_US.UTF-8 && export LC_ALL=en_US.UTF-8
+RUN apt-get clean && apt-get update && apt-get install -y locales
 RUN locale-gen en_US.UTF-8
 
 # Trigger first run experience by running arbitrary cmd to populate local package cache
