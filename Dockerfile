@@ -65,7 +65,11 @@ ENV ASPNETCORE_URLS=http://+:80 \
 
 # Set the locale
 RUN apt-get clean && apt-get update && apt-get install -y locales
-RUN locale-gen en_US.UTF-8
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8 
 
 # Trigger first run experience by running arbitrary cmd to populate local package cache
 RUN dotnet help
