@@ -76,3 +76,6 @@ RUN apt-get clean && apt-get update && apt-get install -y vim
 
 # Trigger first run experience by running arbitrary cmd to populate local package cache
 RUN dotnet help
+
+# Install Fake
+Run dotnet tool install -g fake-cli
