@@ -74,8 +74,9 @@ ENV LANG en_US.UTF-8
 # Install Vim
 RUN apt-get clean && apt-get update && apt-get install -y vim
 
-# Install Fake
-Run dotnet tool install -g fake-cli 
+# Install FPublisher
+# https://github.com/humhei/FPublisher
+Run dotnet tool install -g fpublisher-cli 
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
 # Trigger first run experience by running arbitrary cmd to populate local package cache
